@@ -1,0 +1,17 @@
+name: ngs_pipeline
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.12
+  - bwa
+  - samtools
+  - bcftools
+  - fastqc
+  - fastp
+  - ensembl-vep
+  - jupyter
+  - pandas
+  - matplotlib

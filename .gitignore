@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Linux
+*.swp
+*~
+
+# FASTQ
+*.fastq
+*.fastq.gz
+
+# Alignment
+*.sam
+*.bam
+*.bai
+
+# Variant files
+*.bcf
+*.csi
+
+# Temporary
+tmp/
+temp/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumb# Raw sequencing data
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+
+# Alignment files
+*.sam
+*.bam
+*.cram
+*.bai
+*.crai
+
+# Reference genomes
+*.fa
+*.fasta
+*.fna
+*.fa.gz
+*.fasta.gz
+*.fai
+*.dict
+
+# Variant files
+*.vcf
+*.vcf.gz
+*.bcf
+*.tbi
+*.csi
+
+# VEP cache
+.vep/
+vep_cache/
+
+# FastQC archives
+*_fastqc.zip
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.dbs.db

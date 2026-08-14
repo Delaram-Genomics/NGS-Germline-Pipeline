@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+title: Germline Variant Analysis Pipeline
+message: If you use this project, please cite it.
+authors:
+  - family-names: Sherkatghannad
+    given-names: Delaram
+version: 1.0

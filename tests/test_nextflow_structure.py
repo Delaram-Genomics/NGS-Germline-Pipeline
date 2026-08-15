@@ -33,6 +33,11 @@ class NextflowStructureTests(unittest.TestCase):
             self.assertTrue(path.is_file(), name)
             self.assertTrue(os.access(path, os.X_OK), name)
 
+    def test_every_process_has_a_safe_stub(self):
+        source = (REPO_ROOT / "main.nf").read_text(encoding="utf-8")
+        self.assertEqual(len(re.findall(r"(?m)^\s{4}stub:\s*$", source)), 4)
+        self.assertNotIn("patient", source.lower())
+
     def test_schema_is_valid_json_and_has_required_inputs(self):
         schema = json.loads((REPO_ROOT / "nextflow_schema.json").read_text(encoding="utf-8"))
         self.assertEqual(set(schema["required"]), {"samplesheet", "reference", "intervals"})

@@ -24,3 +24,21 @@ jobs:
         run: bash -n scripts/*.sh scripts/lib/*.sh
       - name: Validate example samplesheet structure
         run: python scripts/validate_inputs.py --samplesheet config/samplesheet.example.csv --skip-file-checks
+      - name: Install Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: "24.10.5"
+      - name: Prepare non-human Nextflow fixture
+        run: |
+          python scripts/create_smoke_fixture.py --outdir test_data/ci
+          touch test_data/ci/synthetic.fa.{fai,amb,ann,bwt,pac,sa}
+          touch test_data/ci/synthetic.dict
+      - name: Validate Nextflow workflow wiring
+        run: |
+          nextflow run . \
+            -profile test \
+            -stub-run \
+            --samplesheet test_data/ci/samplesheet.csv \
+            --reference test_data/ci/synthetic.fa \
+            --intervals test_data/ci/targets.bed \
+            --outdir results-ci

@@ -23,6 +23,11 @@ process RAW_READ_QC {
       --outdir qc \\
       --threads ${task.cpus}
     """
+
+    stub:
+    """
+    mkdir -p qc/trimmed_fastq
+    """
 }
 
 process ALIGNMENT_AND_BAM_QC {
@@ -47,6 +52,11 @@ process ALIGNMENT_AND_BAM_QC {
       --reads-dir ${qc_dir}/trimmed_fastq \\
       --outdir alignment \\
       --threads ${task.cpus}
+    """
+
+    stub:
+    """
+    mkdir -p alignment/bam
     """
 }
 
@@ -76,6 +86,11 @@ process GERMLINE_SHORT_VARIANTS {
       --threads ${task.cpus} \\
       --memory-gb ${task.memory.toGiga() as int}
     """
+
+    stub:
+    """
+    mkdir -p variants/filtered
+    """
 }
 
 process OFFLINE_VEP_ANNOTATION {
@@ -103,6 +118,11 @@ process OFFLINE_VEP_ANNOTATION {
       --vcf-dir ${variants_dir}/filtered \\
       --outdir annotation \\
       --forks ${task.cpus}
+    """
+
+    stub:
+    """
+    mkdir -p annotation
     """
 }
 

@@ -1,7 +1,18 @@
 cff-version: 1.2.0
-title: Germline Variant Analysis Pipeline
-message: If you use this project, please cite it.
+message: "If you use this educational workflow, please cite the repository and version."
+title: "Reproducible Germline Short-Variant Pipeline"
+type: software
 authors:
-  - family-names: Sherkatghannad
-    given-names: Delaram
-version: 1.0
+  - family-names: "Sherkatghannad"
+    given-names: "Delaram"
+repository-code: "https://github.com/Delaram-Genomics/NGS-Germline-Pipeline"
+url: "https://github.com/Delaram-Genomics/NGS-Germline-Pipeline"
+version: "0.1.0-alpha"
+date-released: "2026-08-16"
+license: MIT
+keywords:
+  - germline
+  - whole-exome sequencing
+  - nextflow
+  - variant calling
+  - bioinformatics

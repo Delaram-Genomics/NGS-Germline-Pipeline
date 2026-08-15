@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Delaram-Genomics/NGS-Germline-Pipeline/nextflow_schema.json",
+  "title": "NGS Germline Pipeline parameters",
+  "description": "Parameters for a research and training germline WES workflow.",
+  "type": "object",
+  "properties": {
+    "samplesheet": {
+      "type": "string",
+      "description": "CSV containing sample_id, fastq_r1 and fastq_r2.",
+      "format": "file-path"
+    },
+    "reference": {
+      "type": "string",
+      "description": "Indexed GRCh38 reference FASTA.",
+      "format": "file-path"
+    },
+    "intervals": {
+      "type": "string",
+      "description": "GATK-compatible WES target intervals.",
+      "format": "file-path"
+    },
+    "vep_cache_dir": {
+      "type": ["string", "null"],
+      "description": "Local offline Ensembl VEP cache directory."
+    },
+    "vep_cache_version": {
+      "type": ["integer", "null"],
+      "description": "Ensembl VEP cache release."
+    },
+    "skip_annotation": {
+      "type": "boolean",
+      "default": false
+    },
+    "outdir": {
+      "type": "string",
+      "default": "results"
+    }
+  },
+  "required": ["samplesheet", "reference", "intervals"],
+  "additionalProperties": true
+}

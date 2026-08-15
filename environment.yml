@@ -6,11 +6,15 @@ channels:
 
 dependencies:
   - python=3.12
+  - nextflow>=24.10
   - bwa
   - samtools
   - bcftools
+  - gatk4
+  - hap.py
   - fastqc
   - fastp
+  - multiqc
   - ensembl-vep
   - jupyter
   - pandas

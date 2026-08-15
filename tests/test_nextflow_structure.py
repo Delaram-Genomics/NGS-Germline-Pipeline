@@ -50,6 +50,16 @@ class NextflowStructureTests(unittest.TestCase):
             self.assertRegex(config, rf"(?m)^{report}\s*\{{")
         self.assertIn("nextflowVersion = '>=24.10.0'", config)
 
+    def test_ci_profile_overrides_named_process_cpu_requests(self):
+        config = (REPO_ROOT / "nextflow.config").read_text(encoding="utf-8")
+        test_profile = config.split("test {", maxsplit=1)[1]
+        for process_name in (
+            "RAW_READ_QC",
+            "ALIGNMENT_AND_BAM_QC",
+            "GERMLINE_SHORT_VARIANTS",
+        ):
+            self.assertIn(f"withName: {process_name}", test_profile)
+
     def test_patient_like_numeric_identifiers_are_not_in_tracked_content(self):
         patient_like_identifier = re.compile(r"(?<!\d)\d{11}(?!\d)")
         allowed_suffixes = {".md", ".py", ".sh", ".nf", ".json", ".yml", ".yaml", ".cff", ".txt"}

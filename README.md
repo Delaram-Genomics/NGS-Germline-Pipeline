@@ -34,6 +34,7 @@ experiment also completed with versioned precision/recall results. These
 results are not a whole-exome, whole-genome, production-readiness or clinical
 validation claim. See [`docs/SMOKE_TEST_REPORT.md`](docs/SMOKE_TEST_REPORT.md),
 [`docs/GIAB_BENCHMARK_REPORT.md`](docs/GIAB_BENCHMARK_REPORT.md),
+[`docs/HG002_ANNOTATION_REPORT.md`](docs/HG002_ANNOTATION_REPORT.md),
 [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) and
 [`CHANGELOG.md`](CHANGELOG.md).
 

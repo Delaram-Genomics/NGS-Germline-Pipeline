@@ -32,12 +32,14 @@ Planned release: `v0.1.0-alpha`
   PASS SNP precision/recall were 0.999260/0.997784 and PASS indel
   precision/recall were 0.995708/0.991453. See
   `docs/GIAB_BENCHMARK_REPORT.md` for the constrained scope and caveats.
+- Offline VEP 116.1 annotation of the bounded HG002 query completed with 1,801
+  annotated consequence rows and versioned provenance. See
+  `docs/HG002_ANNOTATION_REPORT.md` for aggregate results and limitations.
 
 ## Not yet verified
 
-- End-to-end execution with FastQC, fastp, BWA, samtools, GATK, bcftools, VEP
-  and hap.py together.
-- VEP cache compatibility and real annotation output.
+- A single orchestrated run covering FastQC, fastp, BWA, samtools, GATK,
+  bcftools, VEP and hap.py without environment transitions.
 - Genome-wide or whole-exome performance and confidence intervals.
 - Performance across more than one public reference sample or capture design.
 

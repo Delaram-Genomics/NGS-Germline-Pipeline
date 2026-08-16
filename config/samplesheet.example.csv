@@ -1,0 +1,2 @@
+sample_id,fastq_r1,fastq_r2
+NA12878,/absolute/path/to/NA12878_R1.fastq.gz,/absolute/path/to/NA12878_R2.fastq.gz

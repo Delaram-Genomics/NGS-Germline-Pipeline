@@ -1,62 +1,59 @@
-# Germline Variant Analysis Pipeline
+# Scientific and technical pipeline rationale
 
-## Overview
+## Analytical question
 
-This repository presents a complete end-to-end germline short-read variant analysis pipeline designed to follow modern bioinformatics practices used in UK clinical genomics laboratories and research institutions.
+Given paired-end Illumina WES reads from an approved public reference sample,
+can a reproducible workflow produce technically reviewed, annotated germline
+SNV and small-indel calls against GRCh38?
 
-The objective of this project is not only to perform variant calling but also to demonstrate reproducible, well-documented and production-style bioinformatics workflows.
+## Stage rationale
 
-The pipeline follows the complete journey of sequencing data beginning with raw Illumina FASTQ files and ending with biologically meaningful and clinically interpretable genomic variants.
+### 1. Input validation
 
-Throughout the workflow, internationally recognised bioinformatics software is used together with reproducible Linux command-line analysis.
+Metadata errors can associate reads with the wrong sample or mate. The pipeline
+therefore checks required columns, unique sample IDs, distinct R1/R2 paths,
+gzip readability and file existence before expensive work.
 
----
+### 2. Raw-read QC and preprocessing
 
-## Pipeline Architecture
+FastQC and MultiQC expose quality, adapter, GC, duplication and sequence-
+content patterns. fastp performs paired-end adapter detection and trimming.
+Both pre- and post-trim evidence are retained because trimming is a change that
+must be observed, not assumed beneficial.
 
-The workflow follows the order below:
+### 3. Alignment and BAM processing
 
-1. Raw sequencing data (FASTQ)
+BWA-MEM maps reads to the declared reference. Read groups preserve sample and
+library context. Name sorting and `fixmate` prepare mate tags; coordinate
+sorting and duplicate marking create a downstream-compatible BAM while keeping
+duplicate evidence marked rather than deleted.
 
-2. Quality assessment
+### 4. Germline short-variant discovery
 
-3. Reference genome preparation
+GATK HaplotypeCaller locally reassembles candidate regions and emits a gVCF.
+Genotyping converts reference-confidence evidence into variant records. SNPs
+and indels receive separate, visible filter labels; records are retained for
+audit and then normalised to reduce representation differences.
 
-4. Read alignment
+### 5. Annotation and research triage
 
-5. BAM processing
+Offline VEP adds versioned transcript, consequence, frequency and database
+context. A transparent rule creates a review queue for PASS, rare/unreported,
+HIGH/MODERATE-impact records. This is research triage—not pathogenicity
+classification.
 
-6. Variant calling
+### 6. Verification
 
-7. Variant filtering
+A synthetic fixture tests workflow wiring. Public GIAB HG002 truth calls and
+confident regions support haplotype-aware benchmarking with hap.py. SNP and
+indel results are reported separately with TP, FP, FN, precision, recall and F1.
 
-8. Functional annotation
+## Unsupported conclusions
 
-9. Variant prioritisation
+The workflow cannot determine that:
 
-10. Clinical interpretation
-
-Each stage produces an output that becomes the input for the following step, creating a fully reproducible analysis pipeline.
-
----
-
-## Input Data
-
-The pipeline begins with paired-end Illumina sequencing data stored in compressed FASTQ format.
-
-Each FASTQ file contains millions of sequencing reads together with their corresponding Phred quality scores.
-
-Typical input consists of:
-
-- Sample_R1.fastq.gz
-
-- Sample_R2.fastq.gz
-
-where
-
-R1 contains Forward Reads
-
-R2 contains Reverse Reads
-
-These paired reads originate from opposite ends of the same DNA fragment, allowing accurate alignment against the human reference genome.
-
+- a patient has or does not have a genetic condition;
+- a variant is pathogenic or benign;
+- an uncaptured or difficult locus is reference sequence;
+- unsupported CNVs, SVs, repeat expansions or mitochondrial variants are absent;
+- performance in one public benchmark generalises to all samples or assays.

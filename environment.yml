@@ -3,15 +3,18 @@ name: ngs_pipeline
 channels:
   - conda-forge
   - bioconda
+  - nodefaults
 
 dependencies:
   - python=3.12
+  - nextflow>=24.10
   - bwa
   - samtools
   - bcftools
+  - gatk4
   - fastqc
   - fastp
-  - ensembl-vep
+  - multiqc
   - jupyter
   - pandas
   - matplotlib

@@ -1,52 +1,34 @@
-# Python
-__pycache__/
-*.pyc
-
-# Jupyter
-.ipynb_checkpoints/
-
-# VS Code
-.vscode/
-
-# Linux
+# Editors and operating systems
+.DS_Store
+Thumbs.db
 *.swp
 *~
+.vscode/
 
-# FASTQ
-*.fastq
-*.fastq.gz
+# Python and Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
 
-# Alignment
-*.sam
-*.bam
-*.bai
-
-# Variant files
-*.bcf
-*.csi
-
-# Temporary
+# Environments and workflow state
+.venv/
+.conda/
+work/
+.nextflow*
 tmp/
 temp/
+*.log
+test_data/
+test_results/
 
-# macOS
-.DS_Store
-
-# Windows
-Thumb# Raw sequencing data
+# Raw sequencing data
 *.fastq
 *.fastq.gz
 *.fq
 *.fq.gz
 
-# Alignment files
-*.sam
-*.bam
-*.cram
-*.bai
-*.crai
-
-# Reference genomes
+# References and annotation resources
 *.fa
 *.fasta
 *.fna
@@ -54,34 +36,36 @@ Thumb# Raw sequencing data
 *.fasta.gz
 *.fai
 *.dict
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
+.vep/
+vep_cache/
 
-# Variant files
+# Alignment and variant outputs
+*.sam
+*.bam
+*.cram
+*.bai
+*.crai
 *.vcf
 *.vcf.gz
 *.bcf
 *.tbi
 *.csi
 
-# VEP cache
-.vep/
-vep_cache/
-
-# FastQC archives
+# Generated reports and results (keep directory placeholders)
+results/**
+!results/.gitkeep
+qc/**
+!qc/.gitkeep
 *_fastqc.zip
+*_fastqc.html
+multiqc_data/
+multiqc_report.html
 
-# Temporary files
-*.tmp
-*.temp
-*.log
-*.swp
-
-# Python
-__pycache__/
-*.py[cod]
-
-# Jupyter
-.ipynb_checkpoints/
-
-# OS
-.DS_Store
-Thumbs.dbs.db
+# Local configuration may contain machine-specific or sensitive paths
+pipeline.env
+samplesheet.csv

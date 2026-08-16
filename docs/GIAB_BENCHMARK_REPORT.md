@@ -84,5 +84,6 @@ benchmark wrapper generated a local checksum manifest alongside its outputs.
 - Results apply only to these versions, inputs, region and parameters. They are
   not clinical sensitivity, clinical specificity or clinical validation.
 - Offline VEP annotation was subsequently completed and is reported separately
-  in `docs/HG002_ANNOTATION_REPORT.md`; a second public sample and independent
-  reproduction remain pending.
+  in `docs/HG002_ANNOTATION_REPORT.md`. A related second sample, HG003, was also
+  benchmarked in `docs/GIAB_HG003_BENCHMARK_REPORT.md`; an unrelated sample and
+  independent reproduction remain pending.

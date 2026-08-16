@@ -29,11 +29,12 @@ a broad workflow whose claims cannot be demonstrated.
 
 The implementation and automated test suite pass locally. A real Nextflow run
 completed through variant calling on the deterministic non-human fixture and
-recovered its single introduced heterozygous SNV. A bounded public GIAB HG002
-experiment also completed with versioned precision/recall results. These
+recovered its single introduced heterozygous SNV. Bounded public GIAB HG002 and
+HG003 experiments also completed with versioned precision/recall results. These
 results are not a whole-exome, whole-genome, production-readiness or clinical
 validation claim. See [`docs/SMOKE_TEST_REPORT.md`](docs/SMOKE_TEST_REPORT.md),
 [`docs/GIAB_BENCHMARK_REPORT.md`](docs/GIAB_BENCHMARK_REPORT.md),
+[`docs/GIAB_HG003_BENCHMARK_REPORT.md`](docs/GIAB_HG003_BENCHMARK_REPORT.md),
 [`docs/HG002_ANNOTATION_REPORT.md`](docs/HG002_ANNOTATION_REPORT.md),
 [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) and
 [`CHANGELOG.md`](CHANGELOG.md).

@@ -162,7 +162,7 @@ for row in "${SAMPLE_ROWS[@]}"; do
         --af_gnomade \
         --af_gnomadg \
         --max_af \
-        --clin_sig \
+        --clin_sig_allele 1 \
         --sift b \
         --polyphen b \
         --pick \
@@ -180,7 +180,7 @@ done
 if [[ "${DRY_RUN}" != "true" ]]; then
     {
         printf 'run_utc\t%s\n' "$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
-        printf 'vep\t%s\n' "$(vep --help 2>&1 | head -n 1)"
+        printf 'vep\t%s\n' "$(vep --help 2>&1 | grep 'ensembl-vep' | head -n 1 | xargs)"
         printf 'vep_cache_version\t%s\n' "${VEP_CACHE_VERSION}"
         printf 'vep_cache_dir\t%s\n' "$(realpath "${VEP_CACHE_DIR}")"
         printf 'reference\t%s\n' "$(realpath "${REFERENCE}")"

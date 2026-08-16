@@ -110,6 +110,8 @@ def parse_annotated_vcf(input_vcf: Path) -> list[dict[str, str]]:
                 if separator:
                     info_items[key] = value
             if "CSQ" not in info_items:
+                if set(alts.split(",")) <= {"*", "."}:
+                    continue
                 raise AnnotationError(f"Variant on line {line_number} has no CSQ annotation.")
 
             for raw_annotation in info_items["CSQ"].split(","):

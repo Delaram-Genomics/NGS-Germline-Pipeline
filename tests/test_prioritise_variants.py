@@ -61,6 +61,15 @@ class PrioritiseVariantsTests(unittest.TestCase):
         records = prioritise_variants.parse_annotated_vcf(vcf)
         self.assertEqual(records[0]["research_review_flag"], "DO_NOT_PRIORITISE")
 
+    def test_star_only_spanning_deletion_without_csq_is_skipped(self):
+        vcf = self._vcf(["chr1\t13\t.\tAT\t*\t50\tPASS\tDP=20"])
+        self.assertEqual(prioritise_variants.parse_annotated_vcf(vcf), [])
+
+    def test_real_alt_without_csq_fails(self):
+        vcf = self._vcf(["chr1\t14\t.\tA\tG\t50\tPASS\tDP=20"])
+        with self.assertRaisesRegex(prioritise_variants.AnnotationError, "no CSQ annotation"):
+            prioritise_variants.parse_annotated_vcf(vcf)
+
     def test_missing_csq_header_fails(self):
         vcf = self._vcf(["chr1\t10\t.\tA\tG\t50\tPASS\tDP=20"], include_csq=False)
         with self.assertRaisesRegex(prioritise_variants.AnnotationError, "CSQ header"):

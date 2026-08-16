@@ -35,13 +35,19 @@ Planned release: `v0.1.0-alpha`
 - Offline VEP 116.1 annotation of the bounded HG002 query completed with 1,801
   annotated consequence rows and versioned provenance. See
   `docs/HG002_ANNOTATION_REPORT.md` for aggregate results and limitations.
+- A second bounded public GIAB sample, HG003, completed through hap.py. PASS
+  SNP precision/recall were 1.000000/0.997920 and PASS indel
+  precision/recall were 1.000000/1.000000. HG003 is related to HG002, and the
+  constrained comparison is documented in
+  `docs/GIAB_HG003_BENCHMARK_REPORT.md`.
 
 ## Not yet verified
 
 - A single orchestrated run covering FastQC, fastp, BWA, samtools, GATK,
   bcftools, VEP and hap.py without environment transitions.
 - Genome-wide or whole-exome performance and confidence intervals.
-- Performance across more than one public reference sample or capture design.
+- Performance on an unrelated public reference sample or actual WES capture
+  design.
 
 ## Release gate
 

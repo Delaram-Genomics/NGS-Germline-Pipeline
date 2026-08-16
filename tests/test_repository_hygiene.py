@@ -51,6 +51,7 @@ class RepositoryHygieneTests(unittest.TestCase):
         workflow = (REPO_ROOT / "main.nf").read_text(encoding="utf-8")
         self.assertNotIn("ensembl-vep", main_environment)
         self.assertIn("ensembl-vep=116.1", annotation_environment)
+        self.assertIn("bcftools=1.24", annotation_environment)
         self.assertIn('conda "${projectDir}/environment-annotation.yml"', workflow)
 
     def test_readme_local_markdown_links_exist(self):

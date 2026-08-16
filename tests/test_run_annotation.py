@@ -55,6 +55,9 @@ class RunAnnotationTests(unittest.TestCase):
         self.assertIn("vep", result.stdout)
         self.assertIn("--offline", result.stdout)
         self.assertIn("--cache_version 113", result.stdout)
+        self.assertIn("--clin_sig_allele 1", result.stdout)
+        self.assertNotIn("--clin_sig ", result.stdout)
+        self.assertIn("grep 'ensembl-vep'", SCRIPT.read_text(encoding="utf-8"))
         self.assertIn("prioritise_variants.py", result.stdout)
 
     def test_missing_vcf_fails(self):

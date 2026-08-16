@@ -8,3 +8,4 @@ channels:
 # Keep the Perl-based annotation stack isolated from the Python analysis tools.
 dependencies:
   - ensembl-vep=116.1
+  - bcftools=1.24

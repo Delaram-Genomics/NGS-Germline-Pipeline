@@ -43,6 +43,16 @@ class RepositoryHygieneTests(unittest.TestCase):
         self.assertIn("python=2.7", benchmark_environment)
         self.assertIn("hap.py=0.3.15", benchmark_environment)
 
+    def test_vep_runtime_is_isolated_and_versioned(self):
+        main_environment = (REPO_ROOT / "environment.yml").read_text(encoding="utf-8")
+        annotation_environment = (REPO_ROOT / "environment-annotation.yml").read_text(
+            encoding="utf-8"
+        )
+        workflow = (REPO_ROOT / "main.nf").read_text(encoding="utf-8")
+        self.assertNotIn("ensembl-vep", main_environment)
+        self.assertIn("ensembl-vep=116.1", annotation_environment)
+        self.assertIn('conda "${projectDir}/environment-annotation.yml"', workflow)
+
     def test_readme_local_markdown_links_exist(self):
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         import re

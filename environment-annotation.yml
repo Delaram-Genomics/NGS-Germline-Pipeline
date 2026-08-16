@@ -1,0 +1,10 @@
+name: ngs_annotation
+
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+
+# Keep the Perl-based annotation stack isolated from the Python analysis tools.
+dependencies:
+  - ensembl-vep=116.1

@@ -49,7 +49,6 @@ bwa 2>&1 | head
 samtools --version | head -1
 gatk --version
 bcftools --version | head -1
-vep --help | head -1
 ```
 
 `hap.py` is intentionally not installed in this environment because its
@@ -61,6 +60,18 @@ mamba env create -f environment-benchmark.yml
 ```
 
 Do not add Python 2.7 to the main analysis environment.
+
+VEP is also isolated because it has a large Perl dependency stack. Install the
+versioned annotation environment separately:
+
+```bash
+mamba env create -f environment-annotation.yml
+conda activate ngs_annotation
+vep --help | head -1
+```
+
+The workflow uses this environment automatically for the annotation process
+when the Nextflow `conda` profile is enabled.
 
 ## 5. Confirm Nextflow
 

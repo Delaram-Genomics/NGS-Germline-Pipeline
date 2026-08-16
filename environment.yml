@@ -15,7 +15,6 @@ dependencies:
   - fastqc
   - fastp
   - multiqc
-  - ensembl-vep
   - jupyter
   - pandas
   - matplotlib

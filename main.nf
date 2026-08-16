@@ -96,7 +96,7 @@ process GERMLINE_SHORT_VARIANTS {
 process OFFLINE_VEP_ANNOTATION {
     tag 'all samples'
     publishDir params.outdir, mode: 'copy', overwrite: true
-    conda "${projectDir}/environment.yml"
+    conda "${projectDir}/environment-annotation.yml"
 
     input:
     path samplesheet

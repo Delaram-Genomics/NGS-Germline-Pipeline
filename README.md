@@ -27,9 +27,11 @@ a broad workflow whose claims cannot be demonstrated.
 
 ## Current verification status
 
-The implementation and automated test suite pass locally. A complete Nextflow
-runtime execution and public GIAB HG002 accuracy benchmark are still pending;
-no precision, recall or production-readiness claim is made. See
+The implementation and automated test suite pass locally. A real Nextflow run
+completed through variant calling on the deterministic non-human fixture and
+recovered its single introduced heterozygous SNV. Public GIAB HG002 accuracy
+benchmarking remains pending; no precision, recall or production-readiness
+claim is made. See [`docs/SMOKE_TEST_REPORT.md`](docs/SMOKE_TEST_REPORT.md),
 [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) and
 [`CHANGELOG.md`](CHANGELOG.md).
 
@@ -175,8 +177,9 @@ scripts/prepare_smoke_test.sh --outdir test_data/smoke
 scripts/run_benchmark.sh --help
 ```
 
-See [`docs/BENCHMARKING.md`](docs/BENCHMARKING.md). No performance claim is made
-until a real, versioned benchmark has completed successfully.
+See [`docs/BENCHMARKING.md`](docs/BENCHMARKING.md) and the completed
+[`docs/SMOKE_TEST_REPORT.md`](docs/SMOKE_TEST_REPORT.md). No analytical
+performance claim is made until a real, versioned benchmark has completed.
 
 ## Portfolio and interview use
 

@@ -69,7 +69,9 @@ class NextflowStructureTests(unittest.TestCase):
         self.assertIn("mkdirs()", workflow_body)
 
     def test_patient_like_numeric_identifiers_are_not_in_tracked_content(self):
-        patient_like_identifier = re.compile(r"(?<!\d)\d{11}(?!\d)")
+        # Exclude digit runs embedded inside hexadecimal checksums while still
+        # rejecting independent 11-digit identifiers in prose and filenames.
+        patient_like_identifier = re.compile(r"(?<![0-9A-Fa-f])\d{11}(?![0-9A-Fa-f])")
         allowed_suffixes = {".md", ".py", ".sh", ".nf", ".json", ".yml", ".yaml", ".cff", ".txt"}
         for path in REPO_ROOT.rglob("*"):
             if ".git" in path.parts or not path.is_file() or path.suffix not in allowed_suffixes:

@@ -24,11 +24,13 @@ Planned release: `v0.1.0-alpha`
 - JSON schema parses successfully.
 - Git whitespace checks pass.
 - Patient-like numeric identifiers are rejected from tracked text by a test.
+- Nextflow 26.04.6 completed the synthetic workflow through variant calling on
+  Ubuntu/WSL2 with 7.6 GiB RAM.
+- The one introduced heterozygous SNV was recovered as `0/1` with `PASS`; see
+  `docs/SMOKE_TEST_REPORT.md` for commands, versions, checksums and limitations.
 
 ## Not yet verified
 
-- Nextflow runtime syntax, because Nextflow is not installed in the current
-  development environment.
 - End-to-end execution with FastQC, fastp, BWA, samtools, GATK, bcftools, VEP
   and hap.py together.
 - VEP cache compatibility and real annotation output.

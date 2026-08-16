@@ -58,6 +58,16 @@ exact region operation and files used.
 
 ## Run hap.py
 
+Activate the isolated benchmark environment first:
+
+```bash
+conda activate ngs_benchmark
+```
+
+The separate environment prevents the legacy Python runtime required by the
+current Bioconda `hap.py` build from weakening the main Python 3.12 analysis
+environment.
+
 ```bash
 scripts/run_benchmark.sh \
   --truth /path/to/HG002_GRCh38_truth.vcf.gz \

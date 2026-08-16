@@ -34,6 +34,15 @@ class RepositoryHygieneTests(unittest.TestCase):
         self.assertIn("version = '0.1.0-alpha'", config)
         self.assertIn("## [0.1.0-alpha]", changelog)
 
+    def test_legacy_happy_runtime_is_isolated(self):
+        main_environment = (REPO_ROOT / "environment.yml").read_text(encoding="utf-8")
+        benchmark_environment = (REPO_ROOT / "environment-benchmark.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertNotIn("hap.py", main_environment)
+        self.assertIn("python=2.7", benchmark_environment)
+        self.assertIn("hap.py=0.3.15", benchmark_environment)
+
     def test_readme_local_markdown_links_exist(self):
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         import re

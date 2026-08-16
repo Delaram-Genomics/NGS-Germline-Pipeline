@@ -52,6 +52,16 @@ bcftools --version | head -1
 vep --help | head -1
 ```
 
+`hap.py` is intentionally not installed in this environment because its
+current Bioconda package requires a legacy Python 2.7 runtime. Create the
+separate benchmark environment only when running GIAB comparisons:
+
+```bash
+mamba env create -f environment-benchmark.yml
+```
+
+Do not add Python 2.7 to the main analysis environment.
+
 ## 5. Confirm Nextflow
 
 The Conda environment declares Nextflow. Confirm it is available:

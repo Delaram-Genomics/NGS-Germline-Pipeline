@@ -1,0 +1,11 @@
+name: ngs_benchmark
+
+channels:
+  - conda-forge
+  - bioconda
+
+# Current Bioconda hap.py builds retain a Python 2.7 runtime. Keep this legacy
+# dependency isolated from the Python 3.12 analysis environment.
+dependencies:
+  - python=2.7
+  - hap.py=0.3.15

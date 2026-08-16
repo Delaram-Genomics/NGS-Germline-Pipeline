@@ -28,13 +28,17 @@ Planned release: `v0.1.0-alpha`
   Ubuntu/WSL2 with 7.6 GiB RAM.
 - The one introduced heterozygous SNV was recovered as `0/1` with `PASS`; see
   `docs/SMOKE_TEST_REPORT.md` for commands, versions, checksums and limitations.
+- A bounded public GIAB HG002 v4.2.1 chr20 benchmark completed with hap.py;
+  PASS SNP precision/recall were 0.999260/0.997784 and PASS indel
+  precision/recall were 0.995708/0.991453. See
+  `docs/GIAB_BENCHMARK_REPORT.md` for the constrained scope and caveats.
 
 ## Not yet verified
 
 - End-to-end execution with FastQC, fastp, BWA, samtools, GATK, bcftools, VEP
   and hap.py together.
 - VEP cache compatibility and real annotation output.
-- GIAB HG002 precision, recall and F1 metrics.
+- Genome-wide or whole-exome performance and confidence intervals.
 - Performance across more than one public reference sample or capture design.
 
 ## Release gate

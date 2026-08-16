@@ -48,6 +48,7 @@ class NextflowStructureTests(unittest.TestCase):
         config = (REPO_ROOT / "nextflow.config").read_text(encoding="utf-8")
         for report in ("timeline", "report", "trace", "dag"):
             self.assertRegex(config, rf"(?m)^{report}\s*\{{")
+        self.assertEqual(config.count("overwrite = true"), 4)
         self.assertIn("nextflowVersion = '>=24.10.0'", config)
 
     def test_ci_profile_overrides_named_process_cpu_requests(self):

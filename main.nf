@@ -127,6 +127,8 @@ process OFFLINE_VEP_ANNOTATION {
 }
 
 workflow {
+    new File(params.outdir as String, 'pipeline_info').mkdirs()
+
     if (!params.samplesheet) {
         error "Missing required parameter: --samplesheet"
     }

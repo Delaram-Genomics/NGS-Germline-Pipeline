@@ -59,6 +59,13 @@ class NextflowStructureTests(unittest.TestCase):
             "GERMLINE_SHORT_VARIANTS",
         ):
             self.assertIn(f"withName: {process_name}", test_profile)
+        self.assertGreaterEqual(test_profile.count("memory = '4 GB'"), 4)
+
+    def test_pipeline_info_directory_is_created_before_execution(self):
+        source = (REPO_ROOT / "main.nf").read_text(encoding="utf-8")
+        workflow_body = source.split("workflow {", maxsplit=1)[1]
+        self.assertIn("pipeline_info", workflow_body)
+        self.assertIn("mkdirs()", workflow_body)
 
     def test_patient_like_numeric_identifiers_are_not_in_tracked_content(self):
         patient_like_identifier = re.compile(r"(?<!\d)\d{11}(?!\d)")

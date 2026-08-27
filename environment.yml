@@ -15,6 +15,7 @@ dependencies:
   - fastqc
   - fastp
   - multiqc
+  - bedtools=2.31.1
   - jupyter
   - pandas
   - matplotlib

@@ -15,19 +15,18 @@ real run rather than writing anticipated results as completed achievements.
 - Implemented provenance capture for software versions, reference/resource
   checksums and Nextflow execution reports, with explicit separation of
   technical research outputs from clinical interpretation.
-- Designed a validation pathway using a deterministic non-human smoke fixture
-  and NIST GIAB HG002/hap.py benchmarking; end-to-end and accuracy execution are
-  documented as pending rather than claimed as completed.
+- Executed the workflow end to end on public GIAB HG002 Agilent V6 WES data,
+  achieving 95.45% SNP recall, 98.54% SNP precision, 89.28% indel recall and
+  87.35% indel precision within high-confidence capture targets.
+- Measured 180.42x mean Q20 target depth, 95.42% of target bases at >=20x and
+  a 72.82% usable on-target alignment rate.
 
-## CV bullet after successful GIAB benchmark
+## Concise benchmark bullet
 
-Use this only after inserting verified numbers:
-
-> Benchmarked germline SNV/indel calls for public GIAB HG002 data within
-> versioned high-confidence target regions using hap.py, achieving [SNP
-> precision/recall] and [indel precision/recall]; investigated false-positive
-> and false-negative contexts and documented reference, truth-set and pipeline
-> checksums for reproducibility.
+> Benchmarked an end-to-end Nextflow germline WES workflow on public GIAB HG002
+> Agilent V6 data using hap.py, achieving 98.54% SNP precision/95.45% recall
+> and 87.35% indel precision/89.28% recall within high-confidence capture
+> targets, with 95.42% of target bases covered at >=20x (baseQ/mapQ >=20).
 
 ## LinkedIn/project description
 
@@ -35,9 +34,10 @@ Use this only after inserting verified numbers:
 > connects my molecular-genetics and NHS variant-interpretation experience with
 > practical bioinformatics engineering. The project uses Nextflow DSL2,
 > FastQC/MultiQC, BWA-MEM, samtools, GATK, bcftools and offline VEP. It includes
-> automated testing, provenance, data-governance controls and a planned NIST
-> GIAB benchmark. It is a research portfolio project, not a clinical diagnostic
-> pipeline.
+> automated testing, provenance and data-governance controls. I benchmarked the
+> WES workflow on public NIST GIAB HG002 data within Agilent V6 capture targets
+> and documented its accuracy and limitations. It is a research portfolio
+> project, not a clinical diagnostic pipeline.
 
 ## Suitable target roles
 

@@ -170,6 +170,19 @@ beginner troubleshooting are documented in
 [`docs/installation.md`](docs/installation.md); orchestration details are in
 [`docs/Workflow.md`](docs/Workflow.md).
 
+For machines with approximately 8 GiB RAM, skip annotation and use the verified
+resource-constrained profile:
+
+```bash
+nextflow run main.nf \
+  -profile conda,wes_low_memory \
+  --samplesheet samplesheet.csv \
+  --reference /path/to/GRCh38.fa \
+  --intervals /path/to/exome_targets.bed \
+  --outdir results \
+  -resume
+```
+
 ## Smoke test and accuracy benchmark
 
 A deterministic non-human fixture checks workflow wiring. Analytical accuracy
@@ -184,6 +197,11 @@ scripts/run_benchmark.sh --help
 See [`docs/BENCHMARKING.md`](docs/BENCHMARKING.md), the completed
 [`docs/SMOKE_TEST_REPORT.md`](docs/SMOKE_TEST_REPORT.md), and the bounded
 [`docs/GIAB_BENCHMARK_REPORT.md`](docs/GIAB_BENCHMARK_REPORT.md).
+
+An end-to-end public HG002 Agilent V6 WES execution achieved 98.54% SNP
+precision, 95.45% SNP recall, 87.35% indel precision and 89.28% indel recall
+within high-confidence capture targets. See the full
+[`HG002 WES benchmark report`](docs/GIAB_HG002_WES_BENCHMARK_REPORT.md).
 
 ## Portfolio and interview use
 
